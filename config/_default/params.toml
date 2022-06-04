@@ -1,0 +1,95 @@
+# Meta Data for SEO
+
+## Homepage
+title = "Zeevo Docs"
+titleSeparator = "|"
+titleAddition = "Zeevo documentation"
+description = "Zeevo is a web app that enables creators to build & share interactive surveys, questionnaires, games, & collections."
+
+## Documentation
+# docsVersion = "0.3"
+
+## Open Graph
+images = ["zeevo.png"]
+ogLocale = "en_US"
+domainTLD = "zeevo.co"
+titleHome = "Zeevo Docs"
+
+## Twitter Cards
+twitterSite = "@zeevo_co"
+twitterCreator = "@WolfDefi"
+
+## JSON-LD
+# schemaType = "Person"
+schemaType = "Organization"
+schemaName = "Zeevo"
+schemaAuthor = "Zak Wolff"
+schemaAuthorTwitter = "https://twitter.com/WolfDefi"
+# schemaAuthorLinkedIn = "https://www.linkedin.com/in/henkverlinde/"
+schemaAuthorGitHub = "https://github.com/zeevoco"
+schemaLocale = "en-US"
+schemaLogo = "zeevo.png"
+schemaLogoWidth = 512
+schemaLogoHeight = 512
+schemaImage = "zeevo.png"
+schemaImageWidth = 1280
+schemaImageHeight = 640
+schemaTwitter = "https://twitter.com/zeevo_co"
+schemaLinkedIn = ""
+schemaGitHub = "https://github.com/zeevoco"
+schemaSection = "blog"
+
+## Sitelinks Search Box
+siteLinksSearchBox = false
+
+## Chrome Browser
+themeColor = "#fff"
+
+# Images
+quality = 85
+bgColor = "#fff"
+landscapePhotoWidths = [900, 800, 700, 600, 500]
+portraitPhotoWidths = [800, 700, 600, 500]
+lqipWidth = "20x"
+smallLimit = "300"
+
+# Footer
+footer = "Powered by <a class=\"text-muted\" href=\"https://gohugo.io/\">Hugo</a>, and <a class=\"text-muted\" href=\"https://getdoks.org/\">Doks</a>"
+
+# Feed
+copyRight = "Copyright (c) 2022 - ZTI"
+
+# Alert
+alert = false
+alertDismissable = true
+# alertText = "Introducing the Doks child theme, several DX + UX updates, and more! <a class=\"alert-link stretched-link\" href=\"https://getdoks.org/blog/doks-v0.2/\" target=\"_blank\" rel=\"noopener\">Check out Doks v0.2</a>"
+alertText = "Introducing the Doks child theme, several DX + UX updates, and more! <a class=\"alert-link stretched-link\" href=\"https://getdoks.org/blog/doks-v0.2/\">Check out Doks v0.2</a>"
+
+# Edit Page
+# repoHost [Github | Gitea | GitLab | Bitbucket | BitbucketServer ] is used for building the edit link based on git hoster
+repoHost = "GitHub"
+#repoHost = "Gitea"
+docsRepo = "https://github.com/zeevoco-zeevo-doks"
+docsRepoBranch = "main"
+docsRepoSubPath = ""
+editPage = false
+lastMod = false
+
+[options]
+  lazySizes = true
+  clipBoard = true
+  instantPage = true
+  flexSearch = true
+  darkMode = true
+  bootStrapJs = true
+  breadCrumb = false
+  highLight = true
+  kaTex = false
+  multilingualMode = false
+  docsVersioning = false
+  fullWidth = false
+
+[menu]
+  [menu.section]
+    auto = true
+    collapsibleSidebar = true
