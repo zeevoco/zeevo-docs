@@ -1,6 +1,6 @@
-import autoprefixer from "autoprefixer";
-import purgecss from "@fullhuman/postcss-purgecss";
-import whitelister from "purgecss-whitelister";
+var autoprefixer = require("autoprefixer");
+var purgecss = require("@fullhuman/postcss-purgecss");
+var whitelister = require("purgecss-whitelister");
 
 module.exports = {
   plugins: [
