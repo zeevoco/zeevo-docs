@@ -1,3 +1,4 @@
+<!-- prettier-ignore-start -->
 ### Changelog
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
@@ -10,3 +11,5 @@ starting from [h-enk/doks-child-theme](https://github.com/h-enk/doks-child-theme
 
 - base revamp [`b6937f6`](https://github.com/zeevoco/zeevo-docs/commit/b6937f6399967f5948e969aa7cf83ad35068bd7a)
 - Initial commit [`2ad699b`](https://github.com/zeevoco/zeevo-docs/commit/2ad699bfde96a12a0576bf8f02463d79bb97e48d)
+
+<!-- prettier-ignore-end -->

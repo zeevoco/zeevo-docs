@@ -1,18 +1,15 @@
-baseurl = "https://doks-child-theme.netlify.app/"
 canonifyURLs = false
 disableAliases = true
 disableHugoGeneratorInject = true
 enableEmoji = true
-enableGitInfo = false
+enableGitInfo = true
 enableRobotsTXT = true
 languageCode = "en-US"
 paginate = 7
 rssLimit = 10
-
-# Multilingual
 defaultContentLanguage = "en"
-disableLanguages = ["de", "nl"]
 # defaultContentLanguageInSubdir = true
+disableLanguages = ["de", "nl"]
 
 # add redirects/headers
 [outputs]
@@ -45,75 +42,95 @@ baseName = "sitemap"
 isHTML = false
 isPlainText = true
 noUgly = true
-rel  = "sitemap"
+rel = "sitemap"
 
-[caches]
-  [caches.getjson]
-    dir = ":cacheDir/:project"
-    maxAge = "10s"
+[caches.getjson]
+dir = ":cacheDir/:project"
+maxAge = "10s"
 
 [sitemap]
-  changefreq = "weekly"
-  filename = "sitemap.xml"
-  priority = 0.5
+changefreq = "weekly"
+filename = "sitemap.xml"
+priority = 0.5
 
 [taxonomies]
-  contributor = "contributors"
+contributor = "contributors"
+type = "types"
+functionality = "functionalities"
 
 [permalinks]
-  blog = "/blog/:title/"
+blog = "/blog/:title/"
 # docs = "/docs/1.0/:sections[1:]/:title/"
+types = "/showcase/types/:title/"
+functionalities = "/showcase/functionalities/:title/"
+
+[minify]
+disableJs = false
+
+[minify.tdewolff]
 
 [minify.tdewolff.html]
-  keepWhitespace = false
+keepWhitespace = false
 
-[module]
-  [module.hugoVersion]
-    extended = true
-    min = "0.80.0"
-    max = ""
-  [[module.mounts]]
-    source = "node_modules/@hyas/doks/archetypes"
-    target = "archetypes"
-  [[module.mounts]]
-    source = "node_modules/@hyas/doks/assets"
-    target = "assets"
-#  [[module.mounts]]
-#    source = "node_modules/@hyas/doks/content"
-#    target = "content"
-  [[module.mounts]]
-    source = "node_modules/@hyas/doks/data"
-    target = "data"
-  [[module.mounts]]
-    source = "node_modules/@hyas/doks/layouts"
-    target = "layouts"
-  [[module.mounts]]
-    source = "node_modules/@hyas/doks/static"
-    target = "static"
-  [[module.mounts]]
-    source = "node_modules/flexsearch"
-    target = "assets/js/vendor/flexsearch"
-  [[module.mounts]]
-    source = "node_modules/katex"
-    target = "assets/js/vendor/katex"
-  [[module.mounts]]
-    source = "node_modules/mermaid"
-    target = "assets/js/vendor/mermaid"
-  [[module.mounts]]
-    source = "assets"
-    target = "assets"
-  [[module.mounts]]
-    source = "static"
-    target = "static"
-#  [[module.mounts]]
-#    source = "content"
-#    target = "content"
-  [[module.mounts]]
-    source = "layouts"
-    target = "layouts"
-  [[module.mounts]]
-    source = "archetypes"
-    target = "archetypes"
-  [[module.mounts]]
-    source = "data"
-    target = "data"
+[minify.tdewolff.js]
+# https://github.com/tdewolff/minify/issues/472
+keepVarNames = true
+noNullishOperator = false
+precision = 0
+
+[module.hugoVersion]
+extended = true
+min = "0.80.0"
+max = ""
+
+[[module.mounts]]
+source = "node_modules/@hyas/doks/archetypes"
+target = "archetypes"
+
+[[module.mounts]]
+source = "node_modules/@hyas/doks/assets"
+target = "assets"
+
+[[module.mounts]]
+source = "node_modules/@hyas/doks/data"
+target = "data"
+
+[[module.mounts]]
+source = "node_modules/@hyas/doks/layouts"
+target = "layouts"
+
+[[module.mounts]]
+source = "node_modules/@hyas/doks/static"
+target = "static"
+
+[[module.mounts]]
+source = "node_modules/flexsearch"
+target = "assets/js/vendor/flexsearch"
+
+[[module.mounts]]
+source = "node_modules/katex"
+target = "assets/js/vendor/katex"
+
+[[module.mounts]]
+source = "node_modules/mermaid"
+target = "assets/js/vendor/mermaid"
+
+[[module.mounts]]
+source = "assets"
+target = "assets"
+
+[[module.mounts]]
+source = "static"
+target = "static"
+
+[[module.mounts]]
+source = "layouts"
+target = "layouts"
+
+[[module.mounts]]
+source = "archetypes"
+target = "archetypes"
+
+[[module.mounts]]
+source = "data"
+target = "data"
