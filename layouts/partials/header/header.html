@@ -87,8 +87,8 @@
                   aria-expanded="false"
                 >
                   {{ .Name }}
-                  <span class="dropdown-caret"
-                    ><svg
+                  <span class="dropdown-caret">
+                    <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
                       height="20"
@@ -100,8 +100,9 @@
                       stroke-linejoin="round"
                       class="feather feather-chevron-down"
                     >
-                      <polyline points="6 9 12 15 18 9"></polyline></svg
-                  ></span>
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
                 </a>
                 <ul
                   class="dropdown-menu dropdown-menu-main shadow rounded border-0"
@@ -113,9 +114,12 @@
                       <a
                         class="dropdown-item{{ if $active }}active{{ end }}"
                         href="{{ .URL | relLangURL }}"
-                        {{ if $active }}aria-current="true"{{ end }}
-                        >{{ .Name }}</a
+                        {{ if $active }}
+                          aria-current="true"
+                        {{ end }}
                       >
+                        {{ .Name }}
+                      </a>
                     </li>
                   {{ end -}}
                 </ul>
@@ -154,8 +158,8 @@
         type="button"
         aria-label="Toggle user interface mode"
       >
-        <span class="toggle-dark"
-          ><svg
+        <span class="toggle-dark">
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"
@@ -167,10 +171,9 @@
             stroke-linejoin="round"
             class="feather feather-moon"
           >
-            <path
-              d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-            ></path></svg
-        ></span>
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </span>
         <span class="toggle-light"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -192,8 +195,9 @@
             <line x1="1" y1="12" x2="3" y2="12"></line>
             <line x1="21" y1="12" x2="23" y2="12"></line>
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg
-        ></span>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </span>
       </button>
     {{ end -}}
 
@@ -223,22 +227,23 @@
           </li>
           <li><hr class="dropdown-divider" /></li>
           <li>
-            <a class="dropdown-item" href="https://getbootstrap.com/docs/3.4/"
-              >Dutch</a
-            >
+            <a class="dropdown-item" href="https://getbootstrap.com/docs/3.4/">
+              Dutch
+            </a>
           </li>
           <li>
-            <a class="dropdown-item" href="https://getbootstrap.com/2.3.2/"
-              >Russian</a
-            >
+            <a class="dropdown-item" href="https://getbootstrap.com/2.3.2/">
+              Russian
+            </a>
           </li>
           <li><hr class="dropdown-divider" /></li>
           <li>
             <a
               class="dropdown-item"
               href="/docs/contributing/how-to-contribute/"
-              >Help Translate</a
             >
+              Help Translate
+            </a>
           </li>
         </ul>
       </div>

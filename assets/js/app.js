@@ -12,50 +12,6 @@ if (document.querySelector("#deploy-to-netlify") !== null) {
       plausible("Deploy to Netlify");
     });
 }
-/* eslint-enable */
-
-/*
-var docsearch = document.getElementById('docsearch');
-
-if (docsearch !== null) {
-  document.addEventListener('click', buttonBlur);
-}
-
-function buttonBlur() {
-  docsearch.firstElementChild.blur();
-}
-*/
-
-/*
-var search = document.getElementById('search');
-
-if (search !== null) {
-  document.addEventListener('keydown', inputFocus);
-}
-
-function inputFocus(e) {
-  if (e.ctrlKey && e.key === '/' ) {
-    e.preventDefault();
-    search.focus();
-  }
-  if (e.key === 'Escape' ) {
-    search.blur();
-  }
-}
-*/
-
-/* eslint-disable */
-/*
-if (document.querySelector('#search') !== null) {
-  docsearch({
-    apiKey: '978789745e8a1cf3e9a3f0fa321dbdb9',
-    indexName: 'getdoks',
-    inputSelector: '#search',
-    debug: false,
-  });
-}
-*/
-/* eslint-enable */
 
 /*
  * https://css-tricks.com/using-netlify-forms-and-netlify-functions-to-build-an-email-sign-up-widget/

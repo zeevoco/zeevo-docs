@@ -1,7 +1,7 @@
 import Plausible from "plausible-tracker";
 
 const { trackPageview } = Plausible({
-  domain: "getdoks.org",
+  domain: "docs.zeevo.co",
 });
 
 trackPageview();

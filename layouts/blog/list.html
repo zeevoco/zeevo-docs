@@ -9,11 +9,15 @@
             <div class="card">
               <div class="card-body">
                 <h2 class="h3">
-                  <a class="stretched-link text-body" href="{{ .RelPermalink }}"
-                    >{{ .Params.title }}{{ with .Params.emoji -}}
-                      &nbsp;{{ . | emojify }}
-                    {{ end -}}</a
+                  <a
+                    class="stretched-link text-body"
+                    href="{{ .RelPermalink }}"
                   >
+                    {{ .Params.title }}
+                    {{ with .Params.emoji -}}
+                      &nbsp;{{ . | emojify }}
+                    {{ end -}}
+                  </a>
                 </h2>
                 <p>{{ .Params.lead | safeHTML }}</p>
                 {{ partial "main/blog-meta.html" . -}}
