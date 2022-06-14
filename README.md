@@ -17,7 +17,17 @@ npm run build:preview
 
 # generate a new tag
 npm version [major,minor,patch]
+
+# to create a new post
+npm run hugo:new -- posts/my-awesome-title.md
 ```
+
+To use the Hugo CLI tool, you can either run it from the `npm run hugo` command,
+or directly from the binary at `node_modules\.bin\hugo\hugo.exe` on Windows
+or `node_modules/.bin/hugo/hugo` on Linux and macOS.
+
+Please note that in order to pass args to the `npm run` commands,
+you must use the double dash syntax, eg. `npm run hugo -- --gc`.
 
 ## Developer tools
 
