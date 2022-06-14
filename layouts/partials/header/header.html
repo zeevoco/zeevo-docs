@@ -257,28 +257,28 @@
     aria-label="Secondary navigation"
   >
     <div class="container-xxl d-flex align-items-md-center">
-      <!--
-    <form class="doks-search position-relative flex-grow-1 me-auto">
-      <input id="search" class="form-control is-search" type="search" placeholder="Search docs..." aria-label="Search docs..." autocomplete="off">
-    </form>
-    -->
-      <!--
-    <div id="docsearch" class="me-auto"></div>
-    -->
+      <form
+        id="doks-search"
+        tabindex="1"
+        class="doks-search position-relative flex-grow-1 me-auto"
+      >
+        <input
+          id="search"
+          class="form-control is-search search-bar"
+          type="search"
+          placeholder="Search docs..."
+          aria-label="Search docs..."
+          autocomplete="off"
+          onfocusout
+        />
+        <div
+          id="suggestions"
+          class="shadow bg-white rounded collapse search-results"
+        ></div>
+      </form>
 
-      <div class="d-inline-flex me-auto placeholder-glow">
-        <div id="search-placeholder" aria-hidden="true">
-          <a
-            href="#"
-            tabindex="-1"
-            class="btn btn-light disabled placeholder"
-          ></a>
-        </div>
-        <div id="docsearch"></div>
-      </div>
-
-      {{ if eq .Site.Params.options.docsVersioning true -}}
-        <div class="dropdown ms-3">
+      {{ if .Site.Params.options.docsVersioning -}}
+        <div class="dropdown ms-3 mb-auto">
           <button
             class="btn btn-doks-light dropdown-toggle"
             id="doks-versions"
@@ -324,7 +324,7 @@
           </ul>
         </div>
       {{ else -}}
-        <span class="navbar-text fs-6 d-none d-sm-block"
+        <span class="navbar-text fs-6 d-none d-sm-block mb-auto"
           >v{{ $data := getJSON "https://raw.githubusercontent.com/h-enk/doks/master/package.json" }}{{ $data.version }}</span
         >
       {{ end -}}

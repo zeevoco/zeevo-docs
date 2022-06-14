@@ -19,8 +19,8 @@
 {{ end }}
 
 {{ if eq .Section "docs" }}
-  {{ $docSearch := resources.Get "js/docsearch.js" }}
-  {{ partial "script-footer.html" $docSearch }}
+  {{ $flexsearch := resources.Get "js/flexsearch.js" }}
+  {{ partial "script-footer.html" $flexsearch }}
 {{ end }}
 
 {{ $app := resources.Get "js/app.js" }}
