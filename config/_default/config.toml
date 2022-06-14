@@ -82,6 +82,7 @@ precision = 0
 extended = true
 min = "0.80.0"
 max = ""
-#[[module.mounts]]
-#source = "node_modules/flexsearch"
-#target = "assets/js/vendor/flexsearch"
+
+[[module.mounts]]
+source = "node_modules/@fontsource/jost/files"
+target = "static/fonts/vendor/jost"
