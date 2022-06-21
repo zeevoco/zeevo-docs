@@ -68,8 +68,23 @@
 {{ $pathPage := replaceRE "/" "%252F" $pathPage -}}
 {{ $imageTitle := replaceRE " " "%20" (.Scratch.Get "title") -}}
 {{ $imageText := print .Site.Params.domainTLD $pathPage -}}
-{{ $imageURL := print "https://res.cloudinary.com/doks/image/upload/w_1280,h_640,c_fill,q_auto,f_auto/w_860,c_fit,co_rgb:dee2e6,g_south_west,x_105,y_175,fl_text_no_trim,l_text:jost-v4-latin-700.woff2_80:" $imageTitle "/w_860,c_fit,co_rgb:dee2e6,g_south_west,x_105,y_105,l_text:jost-v4-latin-regular.woff2_35:" $imageText "/v1623152651/doks-share-image" -}}
-{{ $.Scratch.Set "primaryImage" $imageURL -}}
+
+{{ $svgTemplate := `
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 640">
+  <rect x="0" y="0" fill="#212529" width="1280" height="640"/>
+  <text fill="#dee2e6" font-family="Jost, sans-serif">
+  <tspan font-size="80px" x="105" y="465" font-weight="700">%s</tspan>
+  <tspan font-size="35px" x="105" y="565" font-weight="400">%s</tspan>
+  </text>
+  </svg>`
+}}
+
+{{ $imageSvg := printf ($svgTemplate) (htmlEscape $imageTitle) (htmlEscape $imageText) }}
+{{ $targetPath :=  print "images" .Permalink "og_images/og.svg" }}
+{{ $vars := $imageSvg | resources.FromString $targetPath }}
+
+{{ $imageURL := print "images" .Permalink "og_image.png" }}
+{{ $.Scratch.Set "primaryImage" $imageURL }}
 
 
 <meta property="og:image" content="{{ $imageURL }}" />
