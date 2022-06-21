@@ -1,10 +1,10 @@
 import * as resvg from "@resvg/resvg-wasm";
 
-await resvg.initWasm(
-  fetch("https://unpkg.com/@resvg/resvg-wasm/index_bg.wasm")
-);
-
 export async function onRequestGet(context) {
+  await resvg.initWasm(
+    fetch("https://unpkg.com/@resvg/resvg-wasm/index_bg.wasm")
+  );
+
   const { request, params, env } = context;
 
   if (params.file === "og.svg") {
