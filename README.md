@@ -35,8 +35,9 @@ Remember to set the environment variables on your project build settings
 to use specific versions of packages.
 
 ```env
-HUGO_VERSION=0.100.2
 NODE_VERSION=16
+HUGO_VERSION=0.100.2
+HUGO_PARAMS_CLOUDFLAREWEBANALYICS=abcde12345
 ```
 
 ## Developer tools

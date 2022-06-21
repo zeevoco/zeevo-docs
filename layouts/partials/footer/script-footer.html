@@ -66,3 +66,5 @@
 
 {{ $jsBundle := $bundle | resources.Concat "main.js" }}
 {{ partial "script-footer.html" $jsBundle }}
+
+{{ partial "main/cloudflare-web-analytics.html" . }}
