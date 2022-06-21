@@ -29,6 +29,16 @@ or `node_modules/.bin/hugo/hugo` on Linux and macOS.
 Please note that in order to pass args to the `npm run` commands,
 you must use the double dash syntax, eg. `npm run hugo -- --gc`.
 
+## Deployment on Cloudflare Pages
+
+Remember to set the environment variables on your project build settings
+to use specific versions of packages.
+
+```env
+HUGO_VERSION=0.100.2
+NODE_VERSION=16
+```
+
 ## Developer tools
 
 This repository includes a few suggested extensions for Visual Studio Code.

@@ -11,7 +11,7 @@ export async function onRequestGet(context) {
     return env.ASSETS.fetch(request);
   }
 
-  if (params.file != "og.png") {
+  if (params.file !== "og.png") {
     return new Response("Not found", { status: 404 });
   }
 
