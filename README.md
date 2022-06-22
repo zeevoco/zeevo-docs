@@ -39,6 +39,13 @@ HUGO_VERSION=0.100.2
 NODE_VERSION=16
 ```
 
+You must also set the command to build to include the baseUrl argument.
+The following provides an environment variable, set automatically by Cloudflare.
+
+```
+hugo --baseURL $CF_PAGES_URL
+```
+
 ## Developer tools
 
 This repository includes a few suggested extensions for Visual Studio Code.

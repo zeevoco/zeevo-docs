@@ -9,7 +9,6 @@ description = "Zeevo is a web app that enables creators to build & share interac
 # # Open Graph
 images = ["zeevo.png"]
 ogLocale = "en_US"
-domainTLD = "zeevo.co"
 titleHome = "Zeevo Docs"
 # # Twitter Cards
 twitterSite = "@zeevo_co"

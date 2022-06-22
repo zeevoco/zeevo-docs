@@ -64,10 +64,10 @@
   {{ .Scratch.Set "title" .Title -}}
 {{ end -}}
 
-{{ $pathPage := .RelPermalink | replaceRE "/$" "" -}}
-{{ $pathPage := replaceRE "/" "%252F" $pathPage -}}
-{{ $imageTitle := replaceRE " " "%20" (.Scratch.Get "title") -}}
-{{ $imageText := print .Site.Params.domainTLD $pathPage -}}
+{{- $imageTitle := .Scratch.Get "title" -}}
+{{- $imageText := (.RelPermalink | absURL) -}}
+{{- $imageText := strings.ReplaceRE "^(https?:)?//" "" $imageText -}}
+{{- $imageText := strings.ReplaceRE "/$" "" $imageText -}}
 
 {{ $svgTemplate := `
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 640">
@@ -79,12 +79,11 @@
   </svg>`
 }}
 
-{{ $imageSvg := printf ($svgTemplate) (htmlEscape $imageTitle) (htmlEscape $imageText) }}
-{{ $targetPath :=  print "images" .Permalink "og_images/og.svg" }}
-{{ $vars := $imageSvg | resources.FromString $targetPath }}
-
-{{ $imageURL := print "images" .Permalink "og_image.png" }}
-{{ $.Scratch.Set "primaryImage" $imageURL }}
+{{- $imageSvg := printf ($svgTemplate) (htmlEscape $imageTitle) (htmlEscape $imageText) -}}
+{{- $targetPath :=  print .Permalink "og.svg" -}}
+{{- $targetPath := (urls.Parse $targetPath).Path -}}
+{{- $vars := $imageSvg | resources.FromString $targetPath -}}
+{{- $imageURL := strings.ReplaceRE "(svg)$" "png" $vars.Permalink -}}
 
 
 <meta property="og:image" content="{{ $imageURL }}" />

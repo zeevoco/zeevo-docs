@@ -1,25 +1,21 @@
 import * as resvg from "@resvg/resvg-wasm";
 
 export async function onRequestGet(context) {
-  await resvg.initWasm(
-    fetch("https://unpkg.com/@resvg/resvg-wasm/index_bg.wasm")
-  );
+  const { request, env } = context;
 
-  const { request, params, env } = context;
+  const url = request.url.replace(/(png)$/gi, "svg");
+  const asset = await env.ASSETS.fetch(new Request(url)).catch(() => null);
 
-  if (params.file === "og.svg") {
-    return env.ASSETS.fetch(request);
-  }
-
-  if (params.file !== "og.png") {
+  if (asset == null) {
     return new Response("Not found", { status: 404 });
   }
 
-  const originalURL = request.url.replace(/\.(png)$/gi, "svg");
-  const originalAsset = await env.ASSETS.fetch(new Request(originalURL));
-
-  let svg = await originalAsset.arrayBuffer();
+  let svg = await asset.arrayBuffer();
   svg = new Uint8Array(svg);
+
+  await resvg.initWasm(
+    fetch("https://unpkg.com/@resvg/resvg-wasm@2.0.1/index_bg.wasm")
+  );
 
   const resvgJS = new resvg.Resvg(svg, {
     // logLevel: "debug",
