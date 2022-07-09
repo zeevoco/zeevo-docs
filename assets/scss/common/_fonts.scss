@@ -1,0 +1,15 @@
+@import "@fontsource/jost/scss/mixins";
+
+$weights: 400, 500, 700;
+$styles: italic, normal;
+
+@each $weight in $weights {
+  @each $style in $styles {
+    @include fontFace(
+      $weight: $weight,
+      $style: $style,
+      $display: fallback,
+      $fontDir: "fonts/vendor/jost"
+    );
+  }
+}

@@ -1,0 +1,68 @@
+{{/* inline partial */}}
+{{ define "partials/script-footer.html" }}
+  {{ with . }}
+    {{ if hugo.IsProduction }}
+      {{ $builtRes := . | js.Build (dict "minify" true) | fingerprint "sha512" }}
+      <script
+        src="{{ $builtRes.RelPermalink }}"
+        integrity="{{ $builtRes.Data.Integrity }}"
+        crossorigin="anonymous"
+        defer
+      ></script>
+    {{ else }}
+      {{ $builtRes := . | js.Build }}
+      <script src="{{ $builtRes.RelPermalink }}" defer></script>
+    {{ end }}
+  {{ else }}
+    {{ errorf "missing 'resource' for partial" }}
+  {{ end }}
+{{ end }}
+
+{{ if eq .Section "docs" }}
+  {{ $flexsearch := resources.Get "js/flexsearch.js" }}
+  {{ partial "script-footer.html" $flexsearch }}
+{{ end }}
+
+{{ $app := resources.Get "js/app.js" }}
+{{ $bundle := slice $app }}
+
+{{ if .Site.Params.options.bootStrapJs }}
+  {{ $bs := resources.Get "js/bootstrap.js" }}
+  {{ $bundle = $bundle | append $bs }}
+{{ end }}
+
+{{ if .Site.Params.options.highLight }}
+  {{ $highlight := resources.Get "js/highlight.js" }}
+  {{ $bundle = $bundle | append $highlight }}
+{{ end }}
+
+{{ if .Site.Params.options.lazySizes }}
+  {{ $lazySizes := resources.Get "js/lazysizes.js" }}
+  {{ $bundle = $bundle | append $lazySizes }}
+{{ end }}
+
+{{ if .Site.Params.options.clipBoard }}
+  {{ $clipBoard := resources.Get "js/clipboard.js" }}
+  {{ $bundle = $bundle | append $clipBoard }}
+{{ end }}
+
+{{ if .Site.Params.options.instantPage }}
+  {{ $instantPage := resources.Get "js/instant.page.js" }}
+  {{ $bundle = $bundle | append $instantPage }}
+{{ end }}
+
+{{ if .Site.Params.options.darkMode }}
+  {{ $darkMode := resources.Get "js/darkmode.js" }}
+  {{ $bundle = $bundle | append $darkMode }}
+{{ end }}
+
+{{ if .Site.Params.alert | and .Site.Params.alertDismissable }}
+  {{ $alert := resources.Get "js/alert.js" }}
+  {{ $bundle = $bundle | append $alert }}
+{{ end }}
+
+{{ $plausible := resources.Get "js/plausible.js" }}
+{{ $bundle = $bundle | append $plausible }}
+
+{{ $jsBundle := $bundle | resources.Concat "main.js" }}
+{{ partial "script-footer.html" $jsBundle }}

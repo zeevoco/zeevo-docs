@@ -1,0 +1,8 @@
+{{ if .Site.Params.options.darkMode }}
+  {{ $darkModeInit := resources.Get "js/darkmode-init.js" | js.Build }}
+  <script src="{{ $darkModeInit.RelPermalink }}"></script>
+{{ end }}
+{{ if .Site.Params.alert | and .Site.Params.alertDismissable }}
+  {{ $alertInit := resources.Get "js/alert-init.js" | js.Build }}
+  <script src="{{ $alertInit.RelPermalink }}"></script>
+{{ end }}

@@ -1,0 +1,24 @@
+{{ $options := (dict "targetPath" "main.css" "includePaths" (slice "node_modules/")) }}
+
+{{ if not hugo.IsProduction }}
+  {{ $options := merge $options (dict "enableSourceMap" true) }}
+  {{ $css := resources.Get "scss/app.scss" | toCSS $options }}
+  <link rel="stylesheet" href="{{ $css.Permalink | relURL }}" />
+{{ else }}
+  {{ $options := merge $options (dict "outputStyle" "compressed") }}
+  {{ $css := resources.Get "scss/app.scss" | toCSS $options | postCSS (dict "config" "config/postcss.config.js") }}
+  {{ $secureCSS := $css | fingerprint "sha512" }}
+  <link
+    rel="stylesheet"
+    href="{{ $secureCSS.Permalink | relURL }}"
+    integrity="{{ $secureCSS.Data.Integrity }}"
+    crossorigin="anonymous"
+  />
+{{ end }}
+<noscript>
+  <style>
+    img.lazyload {
+      display: none;
+    }
+  </style>
+</noscript>
